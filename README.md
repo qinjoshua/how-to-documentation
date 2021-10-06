@@ -1,6 +1,8 @@
-# How-To Guide: Developer Documentation
+# How-To Guide: Technical Documentation
 By Joshua Qin - 38 minute read
 ## Who this guide is for
+The following guide is a review of best practices for writing any kind of **technical documentation**, with a specific focus on **code documentation** - comments that serve as annotations to explain coded logic in human language. We will use the term "technical documentation" to refer to any of the wide variety of documentation types written or consumed by software developers.
+
 This guide is for beginner programmers who already have some experience writing code. You may have started to dip your feet into writing code, and you're beginning to to think about building bigger projects. At this point, you've heard about documentation before, and you've seen some examples of it in practice. You've seen user manuals, guides, code snippets, or developer resource pages with examples of documentation embedded in it.
 
 This guide is also for those who have built complex projects, but only individually. You want to see how code can scale to teams, or you would like to release your projects to the general public. You want to share your project with other people, so that they may add to it, refer to it, or use it.
@@ -9,11 +11,11 @@ In this guide, we will cover what code documentation is, and emphasize the need 
 
 
 
-## Introduction to code documentation
+## Introduction to technical documentation
 
-### What is code documentation?
+### What is technical documentation?
 
-Developer documentation is one of to types of information about your coding project: *what something does*, or *how something should be done*.[^2.1]
+Technical documentation is one of two types of information about your coding project: *what something does*, or *how something should be done*.[^2.1]
 
 Typically, that "something" will be code. A code snippet that does complex logic may have **code comments** next to each line, walking through the semantic meaning of the code. However, that "something" could refer to other parts of the project as well. For example, an API may describe function headers and an explanation of their purposes. Such are cases of describing "what something does".
 
@@ -70,18 +72,18 @@ At the time of writing, it's quite possible that you understand the code that is
 
 ## Types of documentation
 
-We've already mentioned a few common types of documentation - code comments, user manuals, specifications. Here, we list a few more examples that show the diversity and prevalence of documentation in the developer process.
+We've already mentioned a few common types of documentation - code comments, user manuals, specifications. Here, we list a few more examples that show the diversity and prevalence of documentation in the developer process. Click on the links under the "Documentation Type" column in order to see an example of each type.
 
-| Documentation Type      | Description                                                  |
-| ----------------------- | ------------------------------------------------------------ |
-| Code Comments           | Comments included in-line within a code file, describing the function of the immediate code around it. Code comments can be used to describe the function of blocks of code, explain very complicated code segments, or breakdown unclear or counter-intuitive individual lines of code. Most programming languages provide [some way](http://www.gavilan.edu/csis/languages/comments.html) to include code comments directly into the source code, using special symbols to indicate that the comments were meant to be ignored by the compiler. Examples: `// C comment` `# Python comment` `<!--HTML comment-->` |
-| User Manual             | Instructions meant to be read by the end user, typically included in released versions of software delivered to customers. User manuals can take many forms: manuals may be a straightforward description of the functionality of a product, list different functionalities and how they may be used, or provide step-by-step tutorials for users, especially for beginner users. In the past, physical user manuals were included in boxed copies of software; nowadays, user manuals are typically found online. Also see: [Example of user manual](https://www.hmisource.com/otasuke/files/manual/pl_option/XPE-MM01-PDF-eng.pdf), [General guide to formatting user manuals](http://www.hpandt.com/howtocreateeffectivetrainingmanuals.pdf) |
-| Process Documentation   | Guide to a process, typically for internal use. Many development projects in large teams are process-intensive, which can be unfamiliar to new workers on a team. Process documentation can be used to describe a wide range of activities including testing, release, code verification, bug reporting, version control, reporting, designing, or code writing. For example, a release doc might describe the steps that should be taken to ensure that a release is stable, how to build the release version of a software, and how to ship the software to end-users. |
-| Specifications          | Details how a project should work. Colloquially referred to as "specs", it can commonly be used to outline the characteristics of a project or task, which are requirements that are utilized to build the project. Specifications are important to plan out the high-level picture of any project, and allows managers and stakeholders to communicate their needs to the developers to be implemented. |
-| Release Notes           | Shows the end-user or internal development teams what features are in a release, or what changes have been made since the last release. Also commonly termed "changelog". Release notes serve a multitude of purposes, from tracking when releases were added, to notifying end users of what to expect different from an update. [Example of release notes](https://docs.microsoft.com/en-us/windows/release-health/release-information) |
-| Technical Documentation | Explains parts of software code in an external format, as opposed to being in-line like code comments. For example, a readme file or a listing of API headers. Embedded technical documentation is technical documentation that is generated by an automated tool from code comments. Certain comments can be automatically transformed into a richly formatted documentation format, usually exported as HTML. Comments at the top of each function, for instance, could be transformed into a table listing the function header and its functionality. Examples of embedded technical documentation generators include [Javadocs](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html), [JSDoc](https://jsdoc.app/), and [Sandcastle](https://www.microsoft.com/en-us/download/details.aspx?id=10526) |
-| Architecture Design     | Describes the technical design of a project, as opposed to specifications, which detail only the high-level requirements from a less technical perspective. Architecture design documentation will show how individual components of a complex project fit together and interact. For example, database entity relationship diagrams show how tables interact with one another, and what fields go in each table. [Example of database ERD](https://www.conceptdraw.com/How-To-Guide/erd-entity-relationship-diagram-examples) |
-| Sales Documentation     | Documentation used to highlight features to the customer, used by sales and marketing professionals in order to sell the product. Unlike technical documentation or user manuals, sales documentation are not meant to be comprehensive. Instead, sales documentation is designed to underscore selling points and provide enough relevant information to help customers decide on which product to use. |
+| Documentation Type                                           | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Code Comments](https://en.wikipedia.org/wiki/Comment_(computer_programming)#Examples) | Comments included in-line within a code file, describing the function of the immediate code around it. Code comments can be used to describe the function of blocks of code, explain very complicated code segments, or breakdown unclear or counter-intuitive individual lines of code. Most programming languages provide [some way](http://www.gavilan.edu/csis/languages/comments.html) to include code comments directly into the source code, using special symbols to indicate that the comments were meant to be ignored by the compiler. Examples: `// C comment` `# Python comment` `<!--HTML comment-->` |
+| [User Manual](https://support.rosette.com/hc/en-us/sections/360012765891-Rosette-Name-Indexer-and-Rosette-Name-Translator-RNI-RNT-Application-Developer-s-Guide) | Instructions meant to be read by the end user, typically included in released versions of software delivered to customers. User manuals can take many forms: manuals may be a straightforward description of the functionality of a product, list different functionalities and how they may be used, or provide step-by-step tutorials for users, especially for beginner users. In the past, physical user manuals were included in boxed copies of software; nowadays, user manuals are typically found online. Also see: [Example of user manual](https://www.hmisource.com/otasuke/files/manual/pl_option/XPE-MM01-PDF-eng.pdf), [General guide to formatting user manuals](http://www.hpandt.com/howtocreateeffectivetrainingmanuals.pdf) |
+| [Process Documentation](https://www.sophos.com/en-us/medialibrary/PDFs/other/sophos-example-data-security-policies-na.pdf) | Guide to a process, typically for internal use. Many development projects in large teams are process-intensive, which can be unfamiliar to new workers on a team. Process documentation can be used to describe a wide range of activities including testing, release, code verification, bug reporting, version control, reporting, designing, or code writing. For example, a release doc might describe the steps that should be taken to ensure that a release is stable, how to build the release version of a software, and how to ship the software to end-users. |
+| [Specifications](https://handypdf.com/pdf/sample-project-specification-document) | Details how a project should work. Colloquially referred to as "specs", it can commonly be used to outline the characteristics of a project or task, which are requirements that are utilized to build the project. Specifications are important to plan out the high-level picture of any project, and allows managers and stakeholders to communicate their needs to the developers to be implemented. |
+| [Release Notes](https://support.rosette.com/hc/en-us/articles/360034968712-Release-Notes) | Shows the end-user or internal development teams what features are in a release, or what changes have been made since the last release. Also commonly termed "changelog". Release notes serve a multitude of purposes, from tracking when releases were added, to notifying end users of what to expect different from an update. [Example of release notes](https://docs.microsoft.com/en-us/windows/release-health/release-information) |
+| [Embedded Documentation](https://docs.oracle.com/javase/8/docs/api/java/io/PrintWriter.html) | Explains parts of software code in an external format, as opposed to being in-line like code comments. For example, a readme file or a listing of API headers. These types of documentation are generated by an automated tool from code comments. Certain comments can be automatically transformed into a richly formatted documentation format, usually exported as HTML. Comments at the top of each function, for instance, could be transformed into a table listing the function header and its functionality. Examples of embedded technical documentation generators include [Javadocs](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html), [JSDoc](https://jsdoc.app/), and [Sandcastle](https://www.microsoft.com/en-us/download/details.aspx?id=10526) |
+| [Architecture Design](https://www.conceptdraw.com/solution-park/resource/images/solutions/entity-relationship-diagram-(erd)/Diagramming-Chen-ERD-Sample61.png) | Describes the technical design of a project, as opposed to specifications, which detail only the high-level requirements from a less technical perspective. Architecture design documentation will show how individual components of a complex project fit together and interact. For example, database entity relationship diagrams show how tables interact with one another, and what fields go in each table. [Example of database ERD](https://www.conceptdraw.com/How-To-Guide/erd-entity-relationship-diagram-examples) |
+| [Sales Documentation](https://docs.microsoft.com/en-us/dynamics365/get-started/intro-crossapp-index) | Documentation used to highlight features to the customer, used by sales and marketing professionals in order to sell the product. Unlike technical documentation or user manuals, sales documentation are not meant to be comprehensive. Instead, sales documentation is designed to underscore selling points and provide enough relevant information to help customers decide on which product to use. |
 
 For technical documentation and other quick and easy types of documentation, Markdown is a fantastic tool to use for the job. Markdown is well-known by most programmers, supported by popular programming tools like GitHub, very easy to create and edit, and already commonly used by software developers. This very doc is written in Markdown, for example.
 
@@ -203,24 +205,6 @@ Here is the [single best example](https://pastebin.com/PTLeWhc2) that both illus
 ```
 
 This was a comment found in leaked copies of the official Windows XP source code, an operating system that was used in well over one billion computers.
-
-         * in the mists of time.  Now this app is 32-bit, these
-                  * bogus timer callbacks (if they really do still occur)
-                  * could be 16-bit, so we need to add yet more ugliness
-                           * in the form of assembler to an app which is already
-                           * hardly a paragon of pulchritude.
-                                    *
-                                    * A plea:
-                                             *
-                                             * If you add some obscure code such as below, to this or
-                                                      * any other app, even if it has only the teeniest chance
-                                                      * of being less blindingly obvious to someone else than
-                                                               * it is to you at the time of writing, please please please
-                                                               * add a f***ing comment.
-                                                                        *
-                                                                        * Respectfully,
-                                                                                 * A Developer
-                                                                                 */
 
 ##### Where you need to cite or specify the ownership of the code
 
@@ -508,4 +492,3 @@ As in the case of user manuals, sales manuals are usually written by dedicated s
 [^4.9]: Germain, H. James de St. “Commenting.” *Programming - Commenting*, School of Computing, University of Utah, https://www.cs.utah.edu/~germain/PPS/Topics/commenting.html.
 [^4.10]: Dalling, Tom. “Why Inline Comments Are Generally a Bad Idea.” *Tom Dalling Blog*, 8 Oct. 1970, https://www.tomdalling.com/blog/coding-styleconventions/why-inline-comments-are-generally-a-bad-idea/.
 [^4.11]: Hart, Geoffrey. *Why Do I Need a Technical Writer?*, https://www.geoff-hart.com/home/whytw.html#:~:text=Technical%20%20writers%20can%20write%20more%20concisely%20without,requirement%20for%20reviews%2C%20thereby%20%20reducing%20review%20costs.
-
